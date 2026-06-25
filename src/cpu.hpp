@@ -38,6 +38,20 @@ public:
     uint16_t get_hl() const;
     void set_hl(uint16_t value);
 
+    // --- Manipulation des Flags (Registre F) ---
+    void set_flag_z(bool value);
+    void set_flag_n(bool value);
+    void set_flag_h(bool value);
+    void set_flag_c(bool value);
+
+    bool get_flag_z() const;
+    bool get_flag_n() const;
+    bool get_flag_h() const;
+    bool get_flag_c() const;
+
+    // --- Helpers d'instructions ---
+    void add_a(uint8_t value);
+
     // --- Accès mémoire via le Bus (8-bit et 16-bit Little-Endian) ---
     uint8_t read(uint16_t addr) const;
     void write(uint16_t addr, uint8_t value);
