@@ -45,7 +45,10 @@ public:
     uint16_t read_16(uint16_t addr) const;
     void write_16(uint16_t addr, uint16_t value);
 
+    void step(); // Exécute une instruction CPU (à implémenter)
+
 private:
+    void execute(uint8_t opcode); // Exécute une instruction spécifique (à implémenter)
     Bus& bus; // Référence vers le bus mémoire pour interagir avec la RAM/ROM
 };
 
