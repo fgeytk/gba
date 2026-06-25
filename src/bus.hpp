@@ -1,6 +1,7 @@
 #ifndef BUS_HPP
 #define BUS_HPP
 
+#include "ram.hpp"
 #include <array>
 #include <cstdint>
 
@@ -15,8 +16,8 @@ public:
   void write(uint16_t addr, uint8_t value);
 
 private:
-  // 64 KB de mémoire adressable (0x0000 - 0xFFFF)
-  std::array<uint8_t, 65536> memory;
+  std::array<uint8_t, 32768> rom; // 32 KB de ROM Cartouche (0x0000 - 0x7FFF)
+  RAM ram;                        // Notre WRAM et HRAM
 };
 
 #endif // BUS_HPP

@@ -9,6 +9,7 @@ set(SOURCES
     src/main.cpp
     src/bus.cpp
     src/cpu.cpp
+    src/ram.cpp
 )
 
 add_executable(gb_emulator ${SOURCES})

@@ -3,7 +3,7 @@
 
 #include <cstdint>
 
-// Déclaration anticipée (forward declaration) pour éviter les inclusions cycliques
+
 class Bus;
 
 class CPU {
@@ -25,8 +25,7 @@ public:
     uint16_t pc; // Program Counter (pointeur d'instruction)
     uint16_t sp; // Stack Pointer (pointeur de pile)
 
-    // --- Accesseurs pour les paires de registres 16 bits ---
-    // Ces fonctions permettent de manipuler deux registres 8 bits combinés
+    // -- Accesseurs pour les registres 16 bits combinés (AF, BC, DE, HL) ---
     uint16_t get_af() const;
     void set_af(uint16_t value);
 
