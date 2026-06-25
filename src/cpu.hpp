@@ -1,0 +1,53 @@
+#ifndef CPU_HPP
+#define CPU_HPP
+
+#include <cstdint>
+
+// Déclaration anticipée (forward declaration) pour éviter les inclusions cycliques
+class Bus;
+
+class CPU {
+public:
+    // Le CPU est connecté au Bus dès sa création via une référence C++
+    explicit CPU(Bus& bus);
+
+    // --- Registres 8 bits individuels ---
+    uint8_t a; // Accumulateur (résultats des opérations)
+    uint8_t f; // Flags (registre d'état contenant les drapeaux Z, N, H, C)
+    uint8_t b;
+    uint8_t c;
+    uint8_t d;
+    uint8_t e;
+    uint8_t h;
+    uint8_t l;
+
+    // --- Registres 16 bits ---
+    uint16_t pc; // Program Counter (pointeur d'instruction)
+    uint16_t sp; // Stack Pointer (pointeur de pile)
+
+    // --- Accesseurs pour les paires de registres 16 bits ---
+    // Ces fonctions permettent de manipuler deux registres 8 bits combinés
+    uint16_t get_af() const;
+    void set_af(uint16_t value);
+
+    uint16_t get_bc() const;
+    void set_bc(uint16_t value);
+
+    uint16_t get_de() const;
+    void set_de(uint16_t value);
+
+    uint16_t get_hl() const;
+    void set_hl(uint16_t value);
+
+    // --- Accès mémoire via le Bus (8-bit et 16-bit Little-Endian) ---
+    uint8_t read(uint16_t addr) const;
+    void write(uint16_t addr, uint8_t value);
+
+    uint16_t read_16(uint16_t addr) const;
+    void write_16(uint16_t addr, uint16_t value);
+
+private:
+    Bus& bus; // Référence vers le bus mémoire pour interagir avec la RAM/ROM
+};
+
+#endif // CPU_HPP
