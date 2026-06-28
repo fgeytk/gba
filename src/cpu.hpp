@@ -51,6 +51,8 @@ public:
 
     // --- Helpers d'instructions ---
     void add_a(uint8_t value);
+    void push_16(uint16_t value);
+    uint16_t pop_16();
 
     // --- Accès mémoire via le Bus (8-bit et 16-bit Little-Endian) ---
     uint8_t read(uint16_t addr) const;

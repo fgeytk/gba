@@ -71,6 +71,19 @@ void CPU::add_a(uint8_t value) {
     set_flag_z(a == 0);
 }
 
+void CPU::push_16(uint16_t value) {
+    sp--;
+    write(sp, (value >> 8) & 0xFF); // Octet de poids fort d'abord
+    sp--;
+    write(sp, value & 0xFF);        // Octet de poids faible ensuite
+}
+
+uint16_t CPU::pop_16() {
+    uint8_t low = read(sp++);
+    uint8_t high = read(sp++);
+    return (high << 8) | low;
+}
+
 // --- Accès mémoire ---
 uint8_t CPU::read(uint16_t addr) const {
     return bus.read(addr);
@@ -108,7 +121,7 @@ void CPU::execute(uint8_t opcode) {
     switch (opcode) {
         case 0x00: // NOP
             break;
-
+        // Les instructions LD (Load) pour charger des valeurs immédiates dans les registres
         case 0x06: // LD B, d8
             b = read(pc++);
             break;
@@ -142,6 +155,76 @@ void CPU::execute(uint8_t opcode) {
             a = read(pc++);
             break;
 
+        case 0xC3: // Jump inconditionnel à une adresse 16 bits (JP a16)  
+            pc = read_16(pc);
+            break;
+
+        case 0xC2: // JP NZ, a16
+            if (!get_flag_z()) pc = read_16(pc); else pc += 2;
+            break;
+
+        case 0xCA: // JP Z, a16
+            if (get_flag_z()) pc = read_16(pc); else pc += 2;
+            break;
+
+        case 0xD2: // JP NC, a16
+            if (!get_flag_c()) pc = read_16(pc); else pc += 2;
+            break;
+
+        case 0xDA: // JP C, a16
+            if (get_flag_c()) pc = read_16(pc); else pc += 2;
+            break;
+
+        // --- Sauts Relatifs (JR e8) ---
+        case 0x18: { // JR e8
+            int8_t offset = (int8_t)read(pc++);
+            pc += offset;
+            break;
+        }
+        case 0x20: { // JR NZ, e8
+            int8_t offset = (int8_t)read(pc++);
+            if (!get_flag_z()) pc += offset;
+            break;
+        }
+        case 0x28: { // JR Z, e8
+            int8_t offset = (int8_t)read(pc++);
+            if (get_flag_z()) pc += offset;
+            break;
+        }
+        case 0x30: { // JR NC, e8
+            int8_t offset = (int8_t)read(pc++);
+            if (!get_flag_c()) pc += offset;
+            break;
+        }
+        case 0x38: { // JR C, e8
+            int8_t offset = (int8_t)read(pc++);
+            if (get_flag_c()) pc += offset;
+            break;
+        }
+
+        // --- Pile (Stack) et Fonctions ---
+        case 0xC5: push_16(get_bc()); break; // PUSH BC
+        case 0xD5: push_16(get_de()); break; // PUSH DE
+        case 0xE5: push_16(get_hl()); break; // PUSH HL
+        case 0xF5: push_16(get_af()); break; // PUSH AF
+
+        case 0xC1: set_bc(pop_16()); break;  // POP BC
+        case 0xD1: set_de(pop_16()); break;  // POP DE
+        case 0xE1: set_hl(pop_16()); break;  // POP HL
+        case 0xF1: set_af(pop_16()); break;  // POP AF
+            
+        case 0xCD: { // CALL a16
+            uint16_t call_addr = read_16(pc);
+            pc += 2; // On avance le PC juste APRES l'instruction CALL (c'est l'adresse de retour)
+            push_16(pc); // On sauvegarde cette adresse de retour sur la pile
+            pc = call_addr; // Et on saute vers la fonction
+            break;
+        }
+        case 0xC9: // RET (Return inconditionnel)
+            pc = pop_16(); // On récupère l'adresse sauvegardée et on la remet dans le PC
+            break;
+
+        //opcode pour add 8 bits un par registre à A
         case 0x80: add_a(b); break; // ADD A, B
         case 0x81: add_a(c); break; // ADD A, C
         case 0x82: add_a(d); break; // ADD A, D
