@@ -1,5 +1,4 @@
-#ifndef RAM_HPP
-#define RAM_HPP
+#pragma once
 
 #include <array>
 #include <cstdint>
@@ -21,4 +20,3 @@ private:
     std::array<uint8_t, 127> hram;  // 127 octets de RAM rapide (High RAM)
 };
 
-#endif // RAM_HPP

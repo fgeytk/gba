@@ -1,5 +1,4 @@
-#ifndef CPU_HPP
-#define CPU_HPP
+#pragma once
 
 #include <cstdint>
 
@@ -68,4 +67,3 @@ private:
     Bus& bus; // Référence vers le bus mémoire pour interagir avec la RAM/ROM
 };
 
-#endif // CPU_HPP

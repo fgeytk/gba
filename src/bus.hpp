@@ -1,5 +1,4 @@
-#ifndef BUS_HPP
-#define BUS_HPP
+#pragma once
 
 #include "ram.hpp"
 #include <array>
@@ -20,4 +19,3 @@ private:
   RAM ram;                        // Notre WRAM et HRAM
 };
 
-#endif // BUS_HPP
