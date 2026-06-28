@@ -1,10 +1,12 @@
 #include "cpu.hpp"
 #include "bus.hpp"
 
-// Le constructeur initialise tous les registres à 0 et lie la référence au Bus.
+// Le constructeur initialise les registres avec les valeurs exactes
+// laissées par le Boot ROM (le BIOS Game Boy) avant de donner la main à la cartouche.
+// Notamment le PC commence à 0x0100 (point d'entrée du jeu) et le SP à 0xFFFE.
 CPU::CPU(Bus& bus)
-    : a(0), f(0), b(0), c(0), d(0), e(0), h(0), l(0),
-      pc(0), sp(0), bus(bus) {}
+    : a(0x01), f(0xB0), b(0x00), c(0x13), d(0x00), e(0xD8), h(0x01), l(0x4D),
+      pc(0x0100), sp(0xFFFE), bus(bus) {}
 
 // --- Paire AF ---
 uint16_t CPU::get_af() const {
@@ -234,8 +236,10 @@ void CPU::execute(uint8_t opcode) {
         case 0x86: add_a(read(get_hl())); break; // ADD A, (HL)
         case 0x87: add_a(a); break; // ADD A, A
 
-        default:
-            // Pour l'instant, si on tombe sur un opcode inconnu, on ne fait rien
-            break;
+        default: {
+            char error_msg[50];
+            snprintf(error_msg, sizeof(error_msg), "Opcode non implemente : 0x%02X a l'adresse 0x%04X", opcode, pc - 1);
+            throw std::runtime_error(error_msg);
+        }
     }
 }
