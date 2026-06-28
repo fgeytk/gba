@@ -1,14 +1,11 @@
 #include "bus.hpp"
 #include <cstdint>
 
-Bus::Bus() {
-    rom.fill(0);
-}
 
 uint8_t Bus::read(uint16_t addr) const {
     // 0x0000 - 0x7FFF : ROM de la cartouche (32 Ko)
     if (addr <= 0x7FFF) {
-        return rom[addr];
+        return rom ? rom->read(addr) : 0xFF; //on renvoie 0xFF si aucune ROM n'est insérée
     }
     // 0xC000 - 0xDFFF : WRAM (Work RAM - 8 Ko)
     else if (addr >= 0xC000 && addr <= 0xDFFF) {
@@ -44,4 +41,8 @@ void Bus::write(uint16_t addr, uint8_t value) {
     else if (addr >= 0xFF80 && addr <= 0xFFFE) {
         ram.write_hram(addr, value);
     }
+}
+
+void Bus::insert_rom(std::unique_ptr<ROM> new_rom) {
+    rom = std::move(new_rom);
 }

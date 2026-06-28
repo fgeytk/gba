@@ -10,6 +10,7 @@ set(SOURCES
     src/bus.cpp
     src/cpu.cpp
     src/ram.cpp
+    src/rom.cpp
 )
 
 add_executable(gb_emulator ${SOURCES})

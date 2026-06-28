@@ -2,9 +2,12 @@
 #define ROM_HPP
 
 
-#include "bus.hpp"
+#pragma once
 #include <vector>
 #include <string>
+#include <fstream>
+#include <cstdint>
+#include <stdexcept>
 
 class ROM {
 public:
