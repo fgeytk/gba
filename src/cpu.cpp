@@ -6,7 +6,7 @@
 // Notamment le PC commence à 0x0100 (point d'entrée du jeu) et le SP à 0xFFFE.
 CPU::CPU(Bus& bus)
     : a(0x01), f(0xB0), b(0x00), c(0x13), d(0x00), e(0xD8), h(0x01), l(0x4D),
-      pc(0x0100), sp(0xFFFE), bus(bus) {}
+      pc(0x0100), sp(0xFFFE), ime(false), bus(bus) {}
 
 // --- Paire AF ---
 uint16_t CPU::get_af() const {

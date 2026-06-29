@@ -297,6 +297,426 @@ int op_add_a_a(CPU& cpu) {
     return 4;
 }
 
+// =============================================================================
+//  LOADS 8 BITS ET INSTRUCTIONS AJOUTEES (AUTO-GENERATED) script "patch_opcodes.py"
+// =============================================================================
+
+int op_ld_b_b(CPU& cpu) {
+    cpu.b = cpu.b;
+    return 4;
+}
+
+int op_ld_b_c(CPU& cpu) {
+    cpu.b = cpu.c;
+    return 4;
+}
+
+int op_ld_b_d(CPU& cpu) {
+    cpu.b = cpu.d;
+    return 4;
+}
+
+int op_ld_b_e(CPU& cpu) {
+    cpu.b = cpu.e;
+    return 4;
+}
+
+int op_ld_b_h(CPU& cpu) {
+    cpu.b = cpu.h;
+    return 4;
+}
+
+int op_ld_b_l(CPU& cpu) {
+    cpu.b = cpu.l;
+    return 4;
+}
+
+int op_ld_b_hl(CPU& cpu) {
+    cpu.b = cpu.read(cpu.get_hl());
+    return 8;
+}
+
+int op_ld_b_a(CPU& cpu) {
+    cpu.b = cpu.a;
+    return 4;
+}
+
+int op_ld_c_b(CPU& cpu) {
+    cpu.c = cpu.b;
+    return 4;
+}
+
+int op_ld_c_c(CPU& cpu) {
+    cpu.c = cpu.c;
+    return 4;
+}
+
+int op_ld_c_d(CPU& cpu) {
+    cpu.c = cpu.d;
+    return 4;
+}
+
+int op_ld_c_e(CPU& cpu) {
+    cpu.c = cpu.e;
+    return 4;
+}
+
+int op_ld_c_h(CPU& cpu) {
+    cpu.c = cpu.h;
+    return 4;
+}
+
+int op_ld_c_l(CPU& cpu) {
+    cpu.c = cpu.l;
+    return 4;
+}
+
+int op_ld_c_hl(CPU& cpu) {
+    cpu.c = cpu.read(cpu.get_hl());
+    return 8;
+}
+
+int op_ld_c_a(CPU& cpu) {
+    cpu.c = cpu.a;
+    return 4;
+}
+
+int op_ld_d_b(CPU& cpu) {
+    cpu.d = cpu.b;
+    return 4;
+}
+
+int op_ld_d_c(CPU& cpu) {
+    cpu.d = cpu.c;
+    return 4;
+}
+
+int op_ld_d_d(CPU& cpu) {
+    cpu.d = cpu.d;
+    return 4;
+}
+
+int op_ld_d_e(CPU& cpu) {
+    cpu.d = cpu.e;
+    return 4;
+}
+
+int op_ld_d_h(CPU& cpu) {
+    cpu.d = cpu.h;
+    return 4;
+}
+
+int op_ld_d_l(CPU& cpu) {
+    cpu.d = cpu.l;
+    return 4;
+}
+
+int op_ld_d_hl(CPU& cpu) {
+    cpu.d = cpu.read(cpu.get_hl());
+    return 8;
+}
+
+int op_ld_d_a(CPU& cpu) {
+    cpu.d = cpu.a;
+    return 4;
+}
+
+int op_ld_e_b(CPU& cpu) {
+    cpu.e = cpu.b;
+    return 4;
+}
+
+int op_ld_e_c(CPU& cpu) {
+    cpu.e = cpu.c;
+    return 4;
+}
+
+int op_ld_e_d(CPU& cpu) {
+    cpu.e = cpu.d;
+    return 4;
+}
+
+int op_ld_e_e(CPU& cpu) {
+    cpu.e = cpu.e;
+    return 4;
+}
+
+int op_ld_e_h(CPU& cpu) {
+    cpu.e = cpu.h;
+    return 4;
+}
+
+int op_ld_e_l(CPU& cpu) {
+    cpu.e = cpu.l;
+    return 4;
+}
+
+int op_ld_e_hl(CPU& cpu) {
+    cpu.e = cpu.read(cpu.get_hl());
+    return 8;
+}
+
+int op_ld_e_a(CPU& cpu) {
+    cpu.e = cpu.a;
+    return 4;
+}
+
+int op_ld_h_b(CPU& cpu) {
+    cpu.h = cpu.b;
+    return 4;
+}
+
+int op_ld_h_c(CPU& cpu) {
+    cpu.h = cpu.c;
+    return 4;
+}
+
+int op_ld_h_d(CPU& cpu) {
+    cpu.h = cpu.d;
+    return 4;
+}
+
+int op_ld_h_e(CPU& cpu) {
+    cpu.h = cpu.e;
+    return 4;
+}
+
+int op_ld_h_h(CPU& cpu) {
+    cpu.h = cpu.h;
+    return 4;
+}
+
+int op_ld_h_l(CPU& cpu) {
+    cpu.h = cpu.l;
+    return 4;
+}
+
+int op_ld_h_hl(CPU& cpu) {
+    cpu.h = cpu.read(cpu.get_hl());
+    return 8;
+}
+
+int op_ld_h_a(CPU& cpu) {
+    cpu.h = cpu.a;
+    return 4;
+}
+
+int op_ld_l_b(CPU& cpu) {
+    cpu.l = cpu.b;
+    return 4;
+}
+
+int op_ld_l_c(CPU& cpu) {
+    cpu.l = cpu.c;
+    return 4;
+}
+
+int op_ld_l_d(CPU& cpu) {
+    cpu.l = cpu.d;
+    return 4;
+}
+
+int op_ld_l_e(CPU& cpu) {
+    cpu.l = cpu.e;
+    return 4;
+}
+
+int op_ld_l_h(CPU& cpu) {
+    cpu.l = cpu.h;
+    return 4;
+}
+
+int op_ld_l_l(CPU& cpu) {
+    cpu.l = cpu.l;
+    return 4;
+}
+
+int op_ld_l_hl(CPU& cpu) {
+    cpu.l = cpu.read(cpu.get_hl());
+    return 8;
+}
+
+int op_ld_l_a(CPU& cpu) {
+    cpu.l = cpu.a;
+    return 4;
+}
+
+int op_ld_hl_b(CPU& cpu) {
+    cpu.write(cpu.get_hl(), cpu.b);
+    return 8;
+}
+
+int op_ld_hl_c(CPU& cpu) {
+    cpu.write(cpu.get_hl(), cpu.c);
+    return 8;
+}
+
+int op_ld_hl_d(CPU& cpu) {
+    cpu.write(cpu.get_hl(), cpu.d);
+    return 8;
+}
+
+int op_ld_hl_e(CPU& cpu) {
+    cpu.write(cpu.get_hl(), cpu.e);
+    return 8;
+}
+
+int op_ld_hl_h(CPU& cpu) {
+    cpu.write(cpu.get_hl(), cpu.h);
+    return 8;
+}
+
+int op_ld_hl_l(CPU& cpu) {
+    cpu.write(cpu.get_hl(), cpu.l);
+    return 8;
+}
+
+int op_ld_hl_a(CPU& cpu) {
+    cpu.write(cpu.get_hl(), cpu.a);
+    return 8;
+}
+
+int op_ld_a_b(CPU& cpu) {
+    cpu.a = cpu.b;
+    return 4;
+}
+
+int op_ld_a_c(CPU& cpu) {
+    cpu.a = cpu.c;
+    return 4;
+}
+
+int op_ld_a_d(CPU& cpu) {
+    cpu.a = cpu.d;
+    return 4;
+}
+
+int op_ld_a_e(CPU& cpu) {
+    cpu.a = cpu.e;
+    return 4;
+}
+
+int op_ld_a_h(CPU& cpu) {
+    cpu.a = cpu.h;
+    return 4;
+}
+
+int op_ld_a_l(CPU& cpu) {
+    cpu.a = cpu.l;
+    return 4;
+}
+
+int op_ld_a_hl(CPU& cpu) {
+    cpu.a = cpu.read(cpu.get_hl());
+    return 8;
+}
+
+int op_ld_a_a(CPU& cpu) {
+    cpu.a = cpu.a;
+    return 4;
+}
+
+int op_ld_bc_a(CPU& cpu) {
+    cpu.write(cpu.get_bc(), cpu.a);
+    return 8;
+}
+
+int op_ld_de_a(CPU& cpu) {
+    cpu.write(cpu.get_de(), cpu.a);
+    return 8;
+}
+
+int op_ld_hl_inc_a(CPU& cpu) {
+    cpu.write(cpu.get_hl(), cpu.a); cpu.set_hl(cpu.get_hl() + 1);
+    return 8;
+}
+
+int op_ld_hl_dec_a(CPU& cpu) {
+    cpu.write(cpu.get_hl(), cpu.a); cpu.set_hl(cpu.get_hl() - 1);
+    return 8;
+}
+
+int op_ld_a_bc(CPU& cpu) {
+    cpu.a = cpu.read(cpu.get_bc());
+    return 8;
+}
+
+int op_ld_a_de(CPU& cpu) {
+    cpu.a = cpu.read(cpu.get_de());
+    return 8;
+}
+
+int op_ld_a_hl_inc(CPU& cpu) {
+    cpu.a = cpu.read(cpu.get_hl()); cpu.set_hl(cpu.get_hl() + 1);
+    return 8;
+}
+
+int op_ld_a_hl_dec(CPU& cpu) {
+    cpu.a = cpu.read(cpu.get_hl()); cpu.set_hl(cpu.get_hl() - 1);
+    return 8;
+}
+
+int op_ldh_a8_a(CPU& cpu) {
+    cpu.write(0xFF00 + cpu.fetch8(), cpu.a);
+    return 12;
+}
+
+int op_ldh_a_a8(CPU& cpu) {
+    cpu.a = cpu.read(0xFF00 + cpu.fetch8());
+    return 12;
+}
+
+int op_ld_addr_c_a(CPU& cpu) {
+    cpu.write(0xFF00 + cpu.c, cpu.a);
+    return 8;
+}
+
+int op_ld_a_addr_c(CPU& cpu) {
+    cpu.a = cpu.read(0xFF00 + cpu.c);
+    return 8;
+}
+
+int op_ld_a16_a(CPU& cpu) {
+    cpu.write(cpu.fetch16(), cpu.a);
+    return 16;
+}
+
+int op_ld_a_a16(CPU& cpu) {
+    cpu.a = cpu.read(cpu.fetch16());
+    return 16;
+}
+
+int op_di(CPU& cpu) {
+    cpu.ime = false;
+    return 4;
+}
+
+int op_ei(CPU& cpu) {
+    cpu.ime = true;
+    return 4;
+}
+
+int op_ld_bc_d16(CPU& cpu) {
+    cpu.set_bc(cpu.fetch16());
+    return 12;
+}
+
+int op_ld_de_d16(CPU& cpu) {
+    cpu.set_de(cpu.fetch16());
+    return 12;
+}
+
+int op_ld_hl_d16(CPU& cpu) {
+    cpu.set_hl(cpu.fetch16());
+    return 12;
+}
+
+int op_ld_sp_d16(CPU& cpu) {
+    cpu.sp = cpu.fetch16();
+    return 12;
+}
+
+
 } // namespace anonyme
 
 
@@ -313,8 +733,8 @@ int op_add_a_a(CPU& cpu) {
 const Instruction OPCODES[256] = {
     // 0x00 — 0x0F
     /* 0x00 */ { "NOP",          4,  0, op_nop },
-    /* 0x01 */ { "LD BC, d16",   0,  0, op_undefined },
-    /* 0x02 */ { "LD (BC), A",   0,  0, op_undefined },
+    /* 0x01 */ { "LD BC, d16",  12,  0, op_ld_bc_d16 },
+    /* 0x02 */ { "LD (BC), A",   8,  0, op_ld_bc_a },
     /* 0x03 */ { "INC BC",       0,  0, op_undefined },
     /* 0x04 */ { "INC B",        0,  0, op_undefined },
     /* 0x05 */ { "DEC B",        0,  0, op_undefined },
@@ -322,7 +742,7 @@ const Instruction OPCODES[256] = {
     /* 0x07 */ { "RLCA",         0,  0, op_undefined },
     /* 0x08 */ { "LD (a16), SP", 0,  0, op_undefined },
     /* 0x09 */ { "ADD HL, BC",   0,  0, op_undefined },
-    /* 0x0A */ { "LD A, (BC)",   0,  0, op_undefined },
+    /* 0x0A */ { "LD A, (BC)",   8,  0, op_ld_a_bc },
     /* 0x0B */ { "DEC BC",       0,  0, op_undefined },
     /* 0x0C */ { "INC C",        0,  0, op_undefined },
     /* 0x0D */ { "DEC C",        0,  0, op_undefined },
@@ -331,8 +751,8 @@ const Instruction OPCODES[256] = {
 
     // 0x10 — 0x1F
     /* 0x10 */ { "STOP",         0,  0, op_undefined },
-    /* 0x11 */ { "LD DE, d16",   0,  0, op_undefined },
-    /* 0x12 */ { "LD (DE), A",   0,  0, op_undefined },
+    /* 0x11 */ { "LD DE, d16",  12,  0, op_ld_de_d16 },
+    /* 0x12 */ { "LD (DE), A",   8,  0, op_ld_de_a },
     /* 0x13 */ { "INC DE",       0,  0, op_undefined },
     /* 0x14 */ { "INC D",        0,  0, op_undefined },
     /* 0x15 */ { "DEC D",        0,  0, op_undefined },
@@ -340,7 +760,7 @@ const Instruction OPCODES[256] = {
     /* 0x17 */ { "RLA",          0,  0, op_undefined },
     /* 0x18 */ { "JR e8",       12,  0, op_jr_e8 },
     /* 0x19 */ { "ADD HL, DE",   0,  0, op_undefined },
-    /* 0x1A */ { "LD A, (DE)",   0,  0, op_undefined },
+    /* 0x1A */ { "LD A, (DE)",   8,  0, op_ld_a_de },
     /* 0x1B */ { "DEC DE",       0,  0, op_undefined },
     /* 0x1C */ { "INC E",        0,  0, op_undefined },
     /* 0x1D */ { "DEC E",        0,  0, op_undefined },
@@ -349,8 +769,8 @@ const Instruction OPCODES[256] = {
 
     // 0x20 — 0x2F
     /* 0x20 */ { "JR NZ, e8",   12,  8, op_jr_nz_e8 },
-    /* 0x21 */ { "LD HL, d16",   0,  0, op_undefined },
-    /* 0x22 */ { "LD (HL+), A",  0,  0, op_undefined },
+    /* 0x21 */ { "LD HL, d16",  12,  0, op_ld_hl_d16 },
+    /* 0x22 */ { "LD (HL+), A",   8,  0, op_ld_hl_inc_a },
     /* 0x23 */ { "INC HL",       0,  0, op_undefined },
     /* 0x24 */ { "INC H",        0,  0, op_undefined },
     /* 0x25 */ { "DEC H",        0,  0, op_undefined },
@@ -358,7 +778,7 @@ const Instruction OPCODES[256] = {
     /* 0x27 */ { "DAA",          0,  0, op_undefined },
     /* 0x28 */ { "JR Z, e8",    12,  8, op_jr_z_e8 },
     /* 0x29 */ { "ADD HL, HL",   0,  0, op_undefined },
-    /* 0x2A */ { "LD A, (HL+)",  0,  0, op_undefined },
+    /* 0x2A */ { "LD A, (HL+)",   8,  0, op_ld_a_hl_inc },
     /* 0x2B */ { "DEC HL",       0,  0, op_undefined },
     /* 0x2C */ { "INC L",        0,  0, op_undefined },
     /* 0x2D */ { "DEC L",        0,  0, op_undefined },
@@ -367,8 +787,8 @@ const Instruction OPCODES[256] = {
 
     // 0x30 — 0x3F
     /* 0x30 */ { "JR NC, e8",   12,  8, op_jr_nc_e8 },
-    /* 0x31 */ { "LD SP, d16",   0,  0, op_undefined },
-    /* 0x32 */ { "LD (HL-), A",  0,  0, op_undefined },
+    /* 0x31 */ { "LD SP, d16",  12,  0, op_ld_sp_d16 },
+    /* 0x32 */ { "LD (HL-), A",   8,  0, op_ld_hl_dec_a },
     /* 0x33 */ { "INC SP",       0,  0, op_undefined },
     /* 0x34 */ { "INC (HL)",     0,  0, op_undefined },
     /* 0x35 */ { "DEC (HL)",     0,  0, op_undefined },
@@ -376,7 +796,7 @@ const Instruction OPCODES[256] = {
     /* 0x37 */ { "SCF",          0,  0, op_undefined },
     /* 0x38 */ { "JR C, e8",    12,  8, op_jr_c_e8 },
     /* 0x39 */ { "ADD HL, SP",   0,  0, op_undefined },
-    /* 0x3A */ { "LD A, (HL-)",  0,  0, op_undefined },
+    /* 0x3A */ { "LD A, (HL-)",   8,  0, op_ld_a_hl_dec },
     /* 0x3B */ { "DEC SP",       0,  0, op_undefined },
     /* 0x3C */ { "INC A",        0,  0, op_undefined },
     /* 0x3D */ { "DEC A",        0,  0, op_undefined },
@@ -384,76 +804,76 @@ const Instruction OPCODES[256] = {
     /* 0x3F */ { "CCF",          0,  0, op_undefined },
 
     // 0x40 — 0x4F : LD B/C, r
-    /* 0x40 */ { "LD B, B",      0,  0, op_undefined },
-    /* 0x41 */ { "LD B, C",      0,  0, op_undefined },
-    /* 0x42 */ { "LD B, D",      0,  0, op_undefined },
-    /* 0x43 */ { "LD B, E",      0,  0, op_undefined },
-    /* 0x44 */ { "LD B, H",      0,  0, op_undefined },
-    /* 0x45 */ { "LD B, L",      0,  0, op_undefined },
-    /* 0x46 */ { "LD B, (HL)",   0,  0, op_undefined },
-    /* 0x47 */ { "LD B, A",      0,  0, op_undefined },
-    /* 0x48 */ { "LD C, B",      0,  0, op_undefined },
-    /* 0x49 */ { "LD C, C",      0,  0, op_undefined },
-    /* 0x4A */ { "LD C, D",      0,  0, op_undefined },
-    /* 0x4B */ { "LD C, E",      0,  0, op_undefined },
-    /* 0x4C */ { "LD C, H",      0,  0, op_undefined },
-    /* 0x4D */ { "LD C, L",      0,  0, op_undefined },
-    /* 0x4E */ { "LD C, (HL)",   0,  0, op_undefined },
-    /* 0x4F */ { "LD C, A",      0,  0, op_undefined },
+    /* 0x40 */ { "LD B, B",   4,  0, op_ld_b_b },
+    /* 0x41 */ { "LD B, C",   4,  0, op_ld_b_c },
+    /* 0x42 */ { "LD B, D",   4,  0, op_ld_b_d },
+    /* 0x43 */ { "LD B, E",   4,  0, op_ld_b_e },
+    /* 0x44 */ { "LD B, H",   4,  0, op_ld_b_h },
+    /* 0x45 */ { "LD B, L",   4,  0, op_ld_b_l },
+    /* 0x46 */ { "LD B, (HL)",   8,  0, op_ld_b_hl },
+    /* 0x47 */ { "LD B, A",   4,  0, op_ld_b_a },
+    /* 0x48 */ { "LD C, B",   4,  0, op_ld_c_b },
+    /* 0x49 */ { "LD C, C",   4,  0, op_ld_c_c },
+    /* 0x4A */ { "LD C, D",   4,  0, op_ld_c_d },
+    /* 0x4B */ { "LD C, E",   4,  0, op_ld_c_e },
+    /* 0x4C */ { "LD C, H",   4,  0, op_ld_c_h },
+    /* 0x4D */ { "LD C, L",   4,  0, op_ld_c_l },
+    /* 0x4E */ { "LD C, (HL)",   8,  0, op_ld_c_hl },
+    /* 0x4F */ { "LD C, A",   4,  0, op_ld_c_a },
 
     // 0x50 — 0x5F : LD D/E, r
-    /* 0x50 */ { "LD D, B",      0,  0, op_undefined },
-    /* 0x51 */ { "LD D, C",      0,  0, op_undefined },
-    /* 0x52 */ { "LD D, D",      0,  0, op_undefined },
-    /* 0x53 */ { "LD D, E",      0,  0, op_undefined },
-    /* 0x54 */ { "LD D, H",      0,  0, op_undefined },
-    /* 0x55 */ { "LD D, L",      0,  0, op_undefined },
-    /* 0x56 */ { "LD D, (HL)",   0,  0, op_undefined },
-    /* 0x57 */ { "LD D, A",      0,  0, op_undefined },
-    /* 0x58 */ { "LD E, B",      0,  0, op_undefined },
-    /* 0x59 */ { "LD E, C",      0,  0, op_undefined },
-    /* 0x5A */ { "LD E, D",      0,  0, op_undefined },
-    /* 0x5B */ { "LD E, E",      0,  0, op_undefined },
-    /* 0x5C */ { "LD E, H",      0,  0, op_undefined },
-    /* 0x5D */ { "LD E, L",      0,  0, op_undefined },
-    /* 0x5E */ { "LD E, (HL)",   0,  0, op_undefined },
-    /* 0x5F */ { "LD E, A",      0,  0, op_undefined },
+    /* 0x50 */ { "LD D, B",   4,  0, op_ld_d_b },
+    /* 0x51 */ { "LD D, C",   4,  0, op_ld_d_c },
+    /* 0x52 */ { "LD D, D",   4,  0, op_ld_d_d },
+    /* 0x53 */ { "LD D, E",   4,  0, op_ld_d_e },
+    /* 0x54 */ { "LD D, H",   4,  0, op_ld_d_h },
+    /* 0x55 */ { "LD D, L",   4,  0, op_ld_d_l },
+    /* 0x56 */ { "LD D, (HL)",   8,  0, op_ld_d_hl },
+    /* 0x57 */ { "LD D, A",   4,  0, op_ld_d_a },
+    /* 0x58 */ { "LD E, B",   4,  0, op_ld_e_b },
+    /* 0x59 */ { "LD E, C",   4,  0, op_ld_e_c },
+    /* 0x5A */ { "LD E, D",   4,  0, op_ld_e_d },
+    /* 0x5B */ { "LD E, E",   4,  0, op_ld_e_e },
+    /* 0x5C */ { "LD E, H",   4,  0, op_ld_e_h },
+    /* 0x5D */ { "LD E, L",   4,  0, op_ld_e_l },
+    /* 0x5E */ { "LD E, (HL)",   8,  0, op_ld_e_hl },
+    /* 0x5F */ { "LD E, A",   4,  0, op_ld_e_a },
 
     // 0x60 — 0x6F : LD H/L, r
-    /* 0x60 */ { "LD H, B",      0,  0, op_undefined },
-    /* 0x61 */ { "LD H, C",      0,  0, op_undefined },
-    /* 0x62 */ { "LD H, D",      0,  0, op_undefined },
-    /* 0x63 */ { "LD H, E",      0,  0, op_undefined },
-    /* 0x64 */ { "LD H, H",      0,  0, op_undefined },
-    /* 0x65 */ { "LD H, L",      0,  0, op_undefined },
-    /* 0x66 */ { "LD H, (HL)",   0,  0, op_undefined },
-    /* 0x67 */ { "LD H, A",      0,  0, op_undefined },
-    /* 0x68 */ { "LD L, B",      0,  0, op_undefined },
-    /* 0x69 */ { "LD L, C",      0,  0, op_undefined },
-    /* 0x6A */ { "LD L, D",      0,  0, op_undefined },
-    /* 0x6B */ { "LD L, E",      0,  0, op_undefined },
-    /* 0x6C */ { "LD L, H",      0,  0, op_undefined },
-    /* 0x6D */ { "LD L, L",      0,  0, op_undefined },
-    /* 0x6E */ { "LD L, (HL)",   0,  0, op_undefined },
-    /* 0x6F */ { "LD L, A",      0,  0, op_undefined },
+    /* 0x60 */ { "LD H, B",   4,  0, op_ld_h_b },
+    /* 0x61 */ { "LD H, C",   4,  0, op_ld_h_c },
+    /* 0x62 */ { "LD H, D",   4,  0, op_ld_h_d },
+    /* 0x63 */ { "LD H, E",   4,  0, op_ld_h_e },
+    /* 0x64 */ { "LD H, H",   4,  0, op_ld_h_h },
+    /* 0x65 */ { "LD H, L",   4,  0, op_ld_h_l },
+    /* 0x66 */ { "LD H, (HL)",   8,  0, op_ld_h_hl },
+    /* 0x67 */ { "LD H, A",   4,  0, op_ld_h_a },
+    /* 0x68 */ { "LD L, B",   4,  0, op_ld_l_b },
+    /* 0x69 */ { "LD L, C",   4,  0, op_ld_l_c },
+    /* 0x6A */ { "LD L, D",   4,  0, op_ld_l_d },
+    /* 0x6B */ { "LD L, E",   4,  0, op_ld_l_e },
+    /* 0x6C */ { "LD L, H",   4,  0, op_ld_l_h },
+    /* 0x6D */ { "LD L, L",   4,  0, op_ld_l_l },
+    /* 0x6E */ { "LD L, (HL)",   8,  0, op_ld_l_hl },
+    /* 0x6F */ { "LD L, A",   4,  0, op_ld_l_a },
 
     // 0x70 — 0x7F : LD (HL)/A, r
-    /* 0x70 */ { "LD (HL), B",   0,  0, op_undefined },
-    /* 0x71 */ { "LD (HL), C",   0,  0, op_undefined },
-    /* 0x72 */ { "LD (HL), D",   0,  0, op_undefined },
-    /* 0x73 */ { "LD (HL), E",   0,  0, op_undefined },
-    /* 0x74 */ { "LD (HL), H",   0,  0, op_undefined },
-    /* 0x75 */ { "LD (HL), L",   0,  0, op_undefined },
+    /* 0x70 */ { "LD (HL), B",   8,  0, op_ld_hl_b },
+    /* 0x71 */ { "LD (HL), C",   8,  0, op_ld_hl_c },
+    /* 0x72 */ { "LD (HL), D",   8,  0, op_ld_hl_d },
+    /* 0x73 */ { "LD (HL), E",   8,  0, op_ld_hl_e },
+    /* 0x74 */ { "LD (HL), H",   8,  0, op_ld_hl_h },
+    /* 0x75 */ { "LD (HL), L",   8,  0, op_ld_hl_l },
     /* 0x76 */ { "HALT",         0,  0, op_undefined },
-    /* 0x77 */ { "LD (HL), A",   0,  0, op_undefined },
-    /* 0x78 */ { "LD A, B",      0,  0, op_undefined },
-    /* 0x79 */ { "LD A, C",      0,  0, op_undefined },
-    /* 0x7A */ { "LD A, D",      0,  0, op_undefined },
-    /* 0x7B */ { "LD A, E",      0,  0, op_undefined },
-    /* 0x7C */ { "LD A, H",      0,  0, op_undefined },
-    /* 0x7D */ { "LD A, L",      0,  0, op_undefined },
-    /* 0x7E */ { "LD A, (HL)",   0,  0, op_undefined },
-    /* 0x7F */ { "LD A, A",      0,  0, op_undefined },
+    /* 0x77 */ { "LD (HL), A",   8,  0, op_ld_hl_a },
+    /* 0x78 */ { "LD A, B",   4,  0, op_ld_a_b },
+    /* 0x79 */ { "LD A, C",   4,  0, op_ld_a_c },
+    /* 0x7A */ { "LD A, D",   4,  0, op_ld_a_d },
+    /* 0x7B */ { "LD A, E",   4,  0, op_ld_a_e },
+    /* 0x7C */ { "LD A, H",   4,  0, op_ld_a_h },
+    /* 0x7D */ { "LD A, L",   4,  0, op_ld_a_l },
+    /* 0x7E */ { "LD A, (HL)",   8,  0, op_ld_a_hl },
+    /* 0x7F */ { "LD A, A",   4,  0, op_ld_a_a },
 
     // 0x80 — 0x8F : ADD / ADC
     /* 0x80 */ { "ADD A, B",     4,  0, op_add_a_b },
@@ -564,9 +984,9 @@ const Instruction OPCODES[256] = {
     /* 0xDF */ { "RST 18H",     0,  0, op_undefined },
 
     // 0xE0 — 0xEF
-    /* 0xE0 */ { "LDH (a8), A",  0,  0, op_undefined },
+    /* 0xE0 */ { "LDH (a8), A",  12,  0, op_ldh_a8_a },
     /* 0xE1 */ { "POP HL",      12,  0, op_pop_hl },
-    /* 0xE2 */ { "LD (C), A",    0,  0, op_undefined },
+    /* 0xE2 */ { "LD (addr_C), A",   8,  0, op_ld_addr_c_a },
     /* 0xE3 */ { "ILLEGAL_E3",   0,  0, op_undefined },
     /* 0xE4 */ { "ILLEGAL_E4",   0,  0, op_undefined },
     /* 0xE5 */ { "PUSH HL",     16,  0, op_push_hl },
@@ -574,7 +994,7 @@ const Instruction OPCODES[256] = {
     /* 0xE7 */ { "RST 20H",     0,  0, op_undefined },
     /* 0xE8 */ { "ADD SP, e8",   0,  0, op_undefined },
     /* 0xE9 */ { "JP (HL)",      0,  0, op_undefined },
-    /* 0xEA */ { "LD (a16), A",  0,  0, op_undefined },
+    /* 0xEA */ { "LD (a16), A",  16,  0, op_ld_a16_a },
     /* 0xEB */ { "ILLEGAL_EB",   0,  0, op_undefined },
     /* 0xEC */ { "ILLEGAL_EC",   0,  0, op_undefined },
     /* 0xED */ { "ILLEGAL_ED",   0,  0, op_undefined },
@@ -582,18 +1002,18 @@ const Instruction OPCODES[256] = {
     /* 0xEF */ { "RST 28H",     0,  0, op_undefined },
 
     // 0xF0 — 0xFF
-    /* 0xF0 */ { "LDH A, (a8)",  0,  0, op_undefined },
+    /* 0xF0 */ { "LDH A, (a8)",  12,  0, op_ldh_a_a8 },
     /* 0xF1 */ { "POP AF",      12,  0, op_pop_af },
-    /* 0xF2 */ { "LD A, (C)",    0,  0, op_undefined },
-    /* 0xF3 */ { "DI",           0,  0, op_undefined },
+    /* 0xF2 */ { "LD A, (addr_C)",   8,  0, op_ld_a_addr_c },
+    /* 0xF3 */ { "DI",   4,  0, op_di },
     /* 0xF4 */ { "ILLEGAL_F4",   0,  0, op_undefined },
     /* 0xF5 */ { "PUSH AF",     16,  0, op_push_af },
     /* 0xF6 */ { "OR d8",        0,  0, op_undefined },
     /* 0xF7 */ { "RST 30H",     0,  0, op_undefined },
     /* 0xF8 */ { "LD HL, SP+e8", 0,  0, op_undefined },
     /* 0xF9 */ { "LD SP, HL",    0,  0, op_undefined },
-    /* 0xFA */ { "LD A, (a16)",  0,  0, op_undefined },
-    /* 0xFB */ { "EI",           0,  0, op_undefined },
+    /* 0xFA */ { "LD A, (a16)",  16,  0, op_ld_a_a16 },
+    /* 0xFB */ { "EI",   4,  0, op_ei },
     /* 0xFC */ { "ILLEGAL_FC",   0,  0, op_undefined },
     /* 0xFD */ { "ILLEGAL_FD",   0,  0, op_undefined },
     /* 0xFE */ { "CP d8",        0,  0, op_undefined },

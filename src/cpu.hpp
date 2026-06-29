@@ -24,6 +24,9 @@ public:
     uint16_t pc; // Program Counter (pointeur d'instruction)
     uint16_t sp; // Stack Pointer (pointeur de pile)
 
+    // --- Interruptions ---
+    bool ime; // Interrupt Master Enable
+
     // -- Accesseurs pour les registres 16 bits combinés (AF, BC, DE, HL) ---
     uint16_t get_af() const;
     void set_af(uint16_t value);
