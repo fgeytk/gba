@@ -106,140 +106,35 @@ void CPU::write_16(uint16_t addr, uint16_t value) {
     write(addr + 1, (value >> 8) & 0xFF); // Octet fort à addr + 1
 }
 
-// --- Exécution d'instructions ---
-void CPU::step() {
-    // Lire l'opcode à l'adresse du PC
-    uint8_t opcode = read(pc);
-
-    // Incrémenter le PC pour pointer vers l'instruction suivante
-    pc++;
-    execute(opcode);
-    return;
+// --- Helpers de fetch ---
+// Utilisés par les handlers d'opcodes dans opcodes.cpp
+uint8_t CPU::fetch8() {
+    return read(pc++);
 }
 
-void CPU::execute(uint8_t opcode) {
-    //futur switch pour les opcodes 
+uint16_t CPU::fetch16() {
+    uint16_t val = read_16(pc);
+    pc += 2;
+    return val;
+}
 
-    switch (opcode) {
-        case 0x00: // NOP
-            break;
-        // Les instructions LD (Load) pour charger des valeurs immédiates dans les registres
-        case 0x06: // LD B, d8
-            b = read(pc++);
-            break;
+// --- Exécution d'instructions ---
+// Le dispatch se fait via les tables OPCODES[] et CB_OPCODES[] définies dans opcodes.cpp.
+// Chaque handler reçoit une référence au CPU et retourne le nombre de cycles consommés.
+#include "opcodes.hpp"
 
-        case 0x0E: // LD C, d8
-            c = read(pc++);
-            break;
+int CPU::step() {
+    // Lire l'opcode à l'adresse du PC
+    uint8_t opcode = fetch8();
 
-        case 0x16: // LD D, d8
-            d = read(pc++);
-            break;
-
-        case 0x1E: // LD E, d8
-            e = read(pc++);
-            break;
-
-        case 0x26: // LD H, d8
-            h = read(pc++);
-            break;
-
-        case 0x2E: // LD L, d8
-            l = read(pc++);
-            break;
-
-        case 0x36: // LD (HL), d8
-            // Attention ici ! On écrit la donnée lue en mémoire à l'adresse contenue dans HL
-            write(get_hl(), read(pc++));
-            break;
-
-        case 0x3E: // LD A, d8
-            a = read(pc++);
-            break;
-
-        case 0xC3: // Jump inconditionnel à une adresse 16 bits (JP a16)  
-            pc = read_16(pc);
-            break;
-
-        case 0xC2: // JP NZ, a16
-            if (!get_flag_z()) pc = read_16(pc); else pc += 2;
-            break;
-
-        case 0xCA: // JP Z, a16
-            if (get_flag_z()) pc = read_16(pc); else pc += 2;
-            break;
-
-        case 0xD2: // JP NC, a16
-            if (!get_flag_c()) pc = read_16(pc); else pc += 2;
-            break;
-
-        case 0xDA: // JP C, a16
-            if (get_flag_c()) pc = read_16(pc); else pc += 2;
-            break;
-
-        // --- Sauts Relatifs (JR e8) ---
-        case 0x18: { // JR e8
-            int8_t offset = (int8_t)read(pc++);
-            pc += offset;
-            break;
-        }
-        case 0x20: { // JR NZ, e8
-            int8_t offset = (int8_t)read(pc++);
-            if (!get_flag_z()) pc += offset;
-            break;
-        }
-        case 0x28: { // JR Z, e8
-            int8_t offset = (int8_t)read(pc++);
-            if (get_flag_z()) pc += offset;
-            break;
-        }
-        case 0x30: { // JR NC, e8
-            int8_t offset = (int8_t)read(pc++);
-            if (!get_flag_c()) pc += offset;
-            break;
-        }
-        case 0x38: { // JR C, e8
-            int8_t offset = (int8_t)read(pc++);
-            if (get_flag_c()) pc += offset;
-            break;
-        }
-
-        // --- Pile (Stack) et Fonctions ---
-        case 0xC5: push_16(get_bc()); break; // PUSH BC
-        case 0xD5: push_16(get_de()); break; // PUSH DE
-        case 0xE5: push_16(get_hl()); break; // PUSH HL
-        case 0xF5: push_16(get_af()); break; // PUSH AF
-
-        case 0xC1: set_bc(pop_16()); break;  // POP BC
-        case 0xD1: set_de(pop_16()); break;  // POP DE
-        case 0xE1: set_hl(pop_16()); break;  // POP HL
-        case 0xF1: set_af(pop_16()); break;  // POP AF
-            
-        case 0xCD: { // CALL a16
-            uint16_t call_addr = read_16(pc);
-            pc += 2; // On avance le PC juste APRES l'instruction CALL (c'est l'adresse de retour)
-            push_16(pc); // On sauvegarde cette adresse de retour sur la pile
-            pc = call_addr; // Et on saute vers la fonction
-            break;
-        }
-        case 0xC9: // RET (Return inconditionnel)
-            pc = pop_16(); // On récupère l'adresse sauvegardée et on la remet dans le PC
-            break;
-
-        //opcode pour add 8 bits un par registre à A
-        case 0x80: add_a(b); break; // ADD A, B
-        case 0x81: add_a(c); break; // ADD A, C
-        case 0x82: add_a(d); break; // ADD A, D
-        case 0x83: add_a(e); break; // ADD A, E
-        case 0x84: add_a(h); break; // ADD A, H
-        case 0x85: add_a(l); break; // ADD A, L
-        case 0x86: add_a(read(get_hl())); break; // ADD A, (HL)
-        case 0x87: add_a(a); break; // ADD A, A
-
-        default: {
-            char error_msg[50];
-            snprintf(error_msg, sizeof(error_msg), "Opcode non implemente : 0x%02X a l'adresse 0x%04X", opcode, pc - 1);
-            throw std::runtime_error(error_msg);
-        }
+    // Gestion du préfixe CB : redirige vers la table d'opcodes CB-prefixed
+    if (opcode == 0xCB) {
+        uint8_t cb_opcode = fetch8();
+        const Instruction& instr = CB_OPCODES[cb_opcode];
+        return instr.execute(*this);
     }
+
+    // Dispatch via la table principale
+    const Instruction& instr = OPCODES[opcode];
+    return instr.execute(*this);
 }

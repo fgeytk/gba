@@ -53,6 +53,10 @@ public:
     void push_16(uint16_t value);
     uint16_t pop_16();
 
+    // --- Helpers de fetch pour les handlers d'opcodes ---
+    uint8_t fetch8();    // Lit un octet à PC et incrémente PC
+    uint16_t fetch16();  // Lit un mot 16-bit à PC et incrémente PC de 2
+
     // --- Accès mémoire via le Bus (8-bit et 16-bit Little-Endian) ---
     uint8_t read(uint16_t addr) const;
     void write(uint16_t addr, uint8_t value);
@@ -60,10 +64,9 @@ public:
     uint16_t read_16(uint16_t addr) const;
     void write_16(uint16_t addr, uint16_t value);
 
-    void step(); // Exécute une instruction CPU (à implémenter)
+    int step(); // Exécute une instruction CPU et retourne les cycles consommés
 
 private:
-    void execute(uint8_t opcode); // Exécute une instruction spécifique (à implémenter)
     Bus& bus; // Référence vers le bus mémoire pour interagir avec la RAM/ROM
 };
 

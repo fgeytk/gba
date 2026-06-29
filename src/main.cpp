@@ -25,7 +25,9 @@ int main(int argc, char* argv[]) {
 
         // 5. Boucle d'exécution infinie
         while (true) {
-            cpu.step();
+            int cycles = cpu.step();
+            // TODO: synchroniser timers, PPU, audio, etc. avec les cycles
+            (void)cycles; // Évite le warning "unused" pour l'instant
         }
 
     } catch (const std::exception& e) {

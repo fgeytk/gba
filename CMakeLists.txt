@@ -9,6 +9,7 @@ set(SOURCES
     src/main.cpp
     src/bus.cpp
     src/cpu.cpp
+    src/opcodes.cpp
     src/ram.cpp
     src/rom.cpp
 )
